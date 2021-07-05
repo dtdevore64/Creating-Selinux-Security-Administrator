@@ -67,5 +67,38 @@ Also if you would like to find that specific policy package and the rest of the 
 
 ```
 sudo id -Z
+staff_u:secadm_r:secadm_t:s0-s0:c0.c1023
 ```
+<br><br><br><br>
+
+
+***Step 9.*** Now let's try turning the policy into permissive mode and as you can see it works with no issue
+
+```
+sudo setenforce 0
+```
+
+<br><br><br><br>
+
+
+***Step 10.*** Let's test this even further by transitioning to the sysadm role and type and see if it will let us change the policy back to enforcing or not
+
+```
+sudo -r sysadm_r -t sysadm_t setenforce 0
+/usr/sbin/setenforce:   setenforce() failed
+```
+<br><br>
+
+As you can see it failed. You can also test the security adminstrator and to see if they are truly confined by having them try to install software like a regular adminstrator would do normally(log into root before you try to install the software) . Since we are the Security Adminstrator though it will not work, but just to test it out run the following commands:
+
+```
+sudo dnf install irssi
+error: Unable to open sqlite database var/lib/rpm/rpmdb.sqlite: unable to open database file
+error: cannot open Packages index using sqlite - Operation not permitted (1)
+error: cannot open Packages database in /var/lib/rpm
+Error: Error: rpmdb open failed
+```
+<br><br>
+And it failed just like we expected it to even as the root user but just to be safe you should always test these things out.
+
 
