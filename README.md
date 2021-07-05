@@ -47,5 +47,9 @@ joe   ALL=(ALL) ROLE=secadm_r TYPE=secadm_t ALL
 
 <br><br><br><br>
 
-***Step 6.*** 
+***Step 6.*** Now we will be using the restorecon command to fix the labels in our home directory and then reboot afer that
+```
+sudo restorecon -RF -v /home/joe
+sudo shutdown -r now
+```
 
