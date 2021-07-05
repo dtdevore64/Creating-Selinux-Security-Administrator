@@ -8,7 +8,8 @@ What is a Security Adminstrator Role in Selinux? A Secruity Adminstrator Role in
 
 ***Step 1.*** Install Selinux on Fedora 34
 
-```sudo dnf install selinux*
+```
+sudo dnf install selinux*
 ```
 <br><br><br><br>
 
