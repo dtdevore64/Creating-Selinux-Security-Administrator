@@ -38,14 +38,14 @@ sudo semanage user -m -R "secadm_r staff_r sysadm_r system_r unconfined_r" staff
 ```
 <br><br><br><br>
 
-***Step 5.*** Adding an Selinux role to be able to use sudo
+***Step 5.*** Adding the Security Adminstrator Role to be able to use sudo
 ```
 ##  Allow root to run any commands anywhere
 root  ALL=(ALL)   ALL
-joe   ALL=(ALL) ROLE=sysadm_r TYPE=sysadm_t ALL
+joe   ALL=(ALL) ROLE=secadm_r TYPE=secadm_t ALL
 ```
 
 <br><br><br><br>
 
-***Step 6.*** Edit the ```"/etc/login.conf"``` towards the top for our default user and make sure it looks like this below. The line we are specifically adding to this file is this
+***Step 6.*** 
 
