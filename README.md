@@ -63,7 +63,7 @@ sudo semodule -d sysadm_secadm -X 100
 Also if you would like to find that specific policy package and the rest of the packages just run the following commands: ```sudo semodule -lfull | grep sysadm_secadm``` and ```sudo semodule -lfull```
 <br><br><br><br>
 
-***Step 8.*** Now whenever we log in we will always be in the staff_u user, staff_r role, and the staff_t type as the default. So now whenever we use the command ```"sudo"``` it will transition us from the staff_r and staff_t types to the secadm_r and secadm_t types. To test this just run the following command:
+***Step 8.*** Now whenever we log in we will always be in the ```"staff_u"``` user, ```"staff_r"``` role, and the ```"staff_t"``` type as the default. So now whenever we use the command ```"sudo"``` it will transition us from the staff_r and staff_t types to the secadm_r and secadm_t types. To test this just run the following command:
 
 ```
 sudo id -Z
