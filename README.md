@@ -38,7 +38,7 @@ sudo semanage user -m -R "secadm_r staff_r sysadm_r system_r unconfined_r" staff
 ```
 <br><br><br><br>
 
-***Step 5.*** Adding the Security Adminstrator Role to be able to use sudo
+***Step 5.*** Adding the Security Adminstrator Role to be able to use sudo in the ```"/etc/sudoers"``` file
 ```
 ##  Allow root to run any commands anywhere
 root  ALL=(ALL)   ALL
