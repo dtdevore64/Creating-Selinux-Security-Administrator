@@ -59,7 +59,7 @@ sudo shutdown -r now
 ```
 sudo semodule -d sysadm_secadm -X 100
 ```
-
+<br><br>
 Also if you would like to find that specific policy package and the rest of the packages just run the following commands: ```sudo semodule -lfull | grep sysadm_secadm``` and ```sudo semodule -lfull```
 <br><br><br><br>
 
