@@ -1,1 +1,48 @@
-# Creating-Selinux-Security-Adminstrator
+# **Creating-Selinux-Security-Adminstrator Role**
+<br><br>
+
+What is a Security Adminstrator Role in Selinux? A Secruity Adminstrator Role in Selinux is someone who can adminstrate the policy. For example they can control whether the policy is in enforcing or permissive mode. Usually the System Adminstrator would just control the policy but if you want to implement RBAC(Role Based Access Control) you would create a role specifically just to implement the policy and that's all they would do. In this example I am going to install Selinux from scratch on a new Fedora system and create a new Linux user and add the Security Adminstrator role to said user and then finally map them together.
+<br><br>
+
+
+
+***Step 1.*** Install Selinux on Fedora 34
+
+```sudo dnf install selinux*```
+<br><br><br><br>
+
+
+***Step 2.*** Install more stuff related to Selinux that we will need
+```
+sudo dnf install secilc* -y
+sudo dnf install setroubleshoot* -y
+sudo dnf install policycoreutils* -y
+sudo dnf install setools* -y
+
+```
+<br><br><br><br>
+
+***Step 3.*** Create new Linux user and map it to an Selinux user
+```sudo useradd joe
+   sudo passwd joe
+   sudo semanage login a -s staff_u -r s0-s0:c0.c1023 joe
+   ```
+<br><br><br><br>
+
+***Step 4.*** Adding the security adminstrator role to the staff_u selinux user
+```
+sudo semanage user -m -R "secadm_r staff_r sysadm_r system_r unconfined_r" staff_u
+```
+<br><br><br><br>
+
+***Step 5.*** Adding an Selinux role to be able to use sudo
+```
+##  Allow root to run any commands anywhere
+root  ALL=(ALL)   ALL
+joe   ALL=(ALL) ROLE=sysadm_r TYPE=sysadm_t ALL
+```
+
+<br><br><br><br>
+
+***Step 6.*** Edit the ```"/etc/login.conf"``` towards the top for our default user and make sure it looks like this below. The line we are specifically adding to this file is this
+
