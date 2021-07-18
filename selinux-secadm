@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to make a new Security Adminstrator named "bob" by mapping it to a linux user, and also assigning them the secadm role
+# Script to make a new Security Adminstrator named "bob" that is the linux user and mapping him to the staff_u selinux user, and also assigning them the secadm role
 
 
 sudo useradd bob
