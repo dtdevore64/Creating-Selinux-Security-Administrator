@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Script to make a new Selinux user named "bob" by mapping it to a linux user, and also assigning them certain roles along with the secadn role
+
+
+sudo useradd bob
+sudo passwd bob
+sudo semanage login -a -s staff_u -r s0-s0:c0.c1023 bob
+sudo semanage user -m -R "staff_r secadm_r sysadm_r system_r" staff_u
