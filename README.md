@@ -1,4 +1,4 @@
-# **Creating-Selinux-Security-Adminstrator Role**
+# **Creating-Selinux-Security-Administrator Role**
 <br><br>
 
 What is a Security Adminstrator Role in Selinux? A Secruity Adminstrator Role in Selinux is someone who can adminstrate the policy. For example they can control whether the policy is in enforcing or permissive mode. Usually the System Adminstrator would just control the policy but if you want to implement RBAC(Role Based Access Control) you would create a role specifically just to implement the policy and that's all they would do. In this example I am going to install Selinux from scratch on a new Fedora system and create a new Linux user and add the Security Adminstrator role to said user and then finally map them together.
